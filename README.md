@@ -26,9 +26,15 @@ A simple and modern C++ assertion library.
 
 ## Usage
 
+Just copy the header file (`./src/Assert.hpp`) and include it as needed. Take a look at
+`/compile_flags.txt` to get a simple example.
+
 ### Debug break
 
 Use `DEBUG_BREAK()` to pause program execution when a debugger is attached.
+
+`ASSERT_FATAL()` will also enter in debug mode before terminate the program, su you can inspect the
+status before crash.
 
 This macro is disabled when `NDEBUG` is defined. Visit the [assert man page](https://man7.org/linux/man-pages/man0/assert.h.0p.html) for more details on `NDEBUG`.
 

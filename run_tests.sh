@@ -1,11 +1,11 @@
 #!/bin/bash
 
 # Source file containing test cases
-SOURCE_FILE="./Assert_test.cpp"
+SOURCE_FILE="./tests/Assert_test.cpp"
 # Temporary file used during compilation
-TEMP_FILE="temp_assert_test.cpp"
+TEMP_FILE="./build/temp_assert_test.cpp"
 # Name of the compiled executable
-EXECUTABLE="assert_test"
+EXECUTABLE="./build/assert_test"
 
 # Pattern used to identify test cases in the source file
 TEST_PATTERN="// RUN_TEST"
@@ -47,7 +47,7 @@ ExtractTests() {
 #######################################
 Compile() {
     local NDEBUG_FLAG="$1"
-    clang++ -std=c++23 -g "${NDEBUG_FLAG}" -o "${EXECUTABLE}" "${TEMP_FILE}" || return 1
+    clang++ @compile_flags.txt "${NDEBUG_FLAG}" -o "${EXECUTABLE}" "${TEMP_FILE}" || return 1
 }
 
 #######################################

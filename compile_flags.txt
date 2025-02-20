@@ -4,4 +4,5 @@
 -Wall
 -fno-rtti
 -fno-exceptions
--DNDEBUG
+-Wno-unused-variable
+-Isrc/

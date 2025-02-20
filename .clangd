@@ -1,7 +1,0 @@
-CompileFlags:
-  Add:
-    - "-stdlib=libc++"
-    - "-std=c++23"
-    - "-O0"
-    - "-Wall"
-    - "-fno-rtti"

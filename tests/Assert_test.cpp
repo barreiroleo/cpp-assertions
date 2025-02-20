@@ -1,4 +1,4 @@
-#include "Assert.hpp"
+#include <Assert.hpp>
 
 int main(int argc, char* argv[]) {
     // RUN_TEST  ASSERT_FATAL(true == true);
