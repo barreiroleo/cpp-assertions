@@ -12,7 +12,8 @@ A simple and modern C++ assertion library.
 
 1. [Features](#features)
 2. [Usage](#usage)
-3. [Run tests](#run-tests)
+3. [Showcase](#showcase)
+4. [Run tests](#run-tests)
 
 </details>
 
@@ -88,6 +89,10 @@ int main(int argc, char* argv[]) {
     return 0;
 }
 ```
+
+## Showcase
+![image](https://github.com/user-attachments/assets/9faa89fd-12df-4a9e-adb8-ad8e2b3318f8)
+
 
 ## Run tests
 
