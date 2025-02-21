@@ -98,7 +98,8 @@ int main(int argc, char* argv[]) {
 
 Since fatal assertions terminate the program under test, this library relies on a custom test runner.
 
-The runner iterates through all test cases marked with `// RUN_TEST` comments, compiling and executing them in both `Debug` and `NoDebug` modes.
+The runner generates executables for debug and non-debug modes. Then it run all the tests cases for
+both modes.
 
 > [!NOTE]
 > *A snapshot testing feature to check test output is planned for the future.*

@@ -3,6 +3,5 @@
 -O0
 -Wall
 -fno-rtti
--fno-exceptions
 -Wno-unused-variable
 -Isrc/
