@@ -91,7 +91,9 @@ int main(int argc, char* argv[]) {
 ```
 
 ## Showcase
-![image](https://github.com/user-attachments/assets/9faa89fd-12df-4a9e-adb8-ad8e2b3318f8)
+
+![image](https://github.com/user-attachments/assets/cf642972-224e-4153-8730-743f70e4622e)
+
 
 
 ## Run tests

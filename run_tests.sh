@@ -68,5 +68,5 @@ RunTests() {
 # Compile and run the tests on each mode
 #######################################
 Compile
-# RunTests "${EXECUTABLE_NDEBUG}"
+RunTests "${EXECUTABLE_NDEBUG}"
 RunTests "${EXECUTABLE}"
