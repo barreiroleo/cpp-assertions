@@ -1,13 +1,18 @@
 #!/bin/bash
 
-# Source file containing test cases
-SOURCE_FILE="./tests/Assert_test.cpp"
-# Name of the compiled executable
-EXECUTABLE="./build/cpp-assertions-tests-debug"
-EXECUTABLE_NDEBUG="./build/cpp-assertions-tests-ndebug"
+#######################################
+# Execution.
+#   ./run_tests.sh [debug-binary] [ndebug-binary]
+#   ./run_tests.sh ./build/tests/cpp-assertions-tests-ndebug ./build/tests/assertions-tests-ndebug
+# Arguments:
+#   $1 - Debug binary path
+#   $2 - NDebug binary path
+#######################################
+EXECUTABLE="$1"
+EXECUTABLE_NDEBUG="$2"
+
 # Exit code when tests finishes
 EXIT_TESTS_FINISH=3
-
 
 # ANSI color codes
 ERROR='\e[31m'   # RED
@@ -15,24 +20,6 @@ WARN='\e[33m'    # YELLOW
 SUCCESS='\e[32m' # GREEN
 INFO='\e[34m'    # BLUE
 NOCOLOR='\e[0m'
-
-#######################################
-# Compiles the source file with optional compiler flags.
-# Globals:
-#   EXECUTABLE
-# Arguments:
-#   $1 - Compiler flag (e.g., -DNDEBUG)
-# Returns:
-#   0 if compilation succeeds, non-zero on failure.
-#######################################
-Compile() {
-    rm -rf ./build/
-    mkdir -p build
-    echo -e "${INFO}--------------------------------------${NOCOLOR}"
-    echo -e "Building"
-    clang++ @compile_flags.txt -o "${EXECUTABLE}" "${SOURCE_FILE}" || return 1
-    clang++ @compile_flags.txt "-DNDEBUG" -o "${EXECUTABLE_NDEBUG}" "${SOURCE_FILE}" || return 1
-}
 
 #######################################
 # Runs extracted test cases.
@@ -49,7 +36,6 @@ RunTests() {
     local MODE=""
     MODE=$( [[ "$EXECUTABLE" == "${EXECUTABLE_NDEBUG}" ]] && echo "NoDebug" || echo "Debug" )
 
-
     local i=0
     while true; do
         echo -e "${INFO}--------------------------------------${NOCOLOR}"
@@ -61,11 +47,7 @@ RunTests() {
         fi
         ((i++))
     done
-
 }
 
-#######################################
-# Compile and run the tests on each mode
-#######################################
 RunTests "${EXECUTABLE_NDEBUG}"
 RunTests "${EXECUTABLE}"

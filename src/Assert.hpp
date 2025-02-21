@@ -1,6 +1,7 @@
 // Define NDEBUG flag in compilation step: `clang++ -DNDEBUG`
 #pragma once
 
+#include <format>
 #include <iostream>
 #include <source_location>
 #include <string_view>
@@ -49,7 +50,7 @@
             return (expr);                                                                         \
         })()
 #else
-    #define ASSERT_FATAL(expr, ...) if (!(expr)) std::abort()
+    #define ASSERT_FATAL(expr, ...) (!(expr)) ? std::abort() : ((void)0)
     #define ASSERT(expr, ...) ((bool)expr)
 #endif
 
