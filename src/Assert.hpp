@@ -49,7 +49,7 @@
             return (expr);                                                                         \
         })()
 #else
-    #define ASSERT_FATAL(expr, ...) std::abort()
+    #define ASSERT_FATAL(expr, ...) if (!(expr)) std::abort()
     #define ASSERT(expr, ...) ((bool)expr)
 #endif
 

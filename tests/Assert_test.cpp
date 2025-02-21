@@ -4,21 +4,20 @@
 
 #define EXIT_TESTS_FINISH 3
 
-void inspect_args(int argc, char* argv[])
-{
+void inspect_args(int argc, char* argv[]) {
     std::println("argc = {}", argc);
     for (size_t i {}; i < argc; ++i) {
         std::println("- argv[{}] = {}", i, argv[i]);
     }
 }
 
-int parse_test_case(int argc, char* argv[])
-{
+int parse_test_case(int argc, char* argv[]) {
     int test_number {};
     if (std::string_view arg = argv[1]; arg == "--test") {
         try {
             test_number = std::atoi(argv[2]);
-        } catch (const std::exception& e) {
+        }
+        catch (const std::exception& e) {
             std::cerr << e.what();
             std::abort();
         }
@@ -26,8 +25,7 @@ int parse_test_case(int argc, char* argv[])
     return test_number;
 }
 
-int main(int argc, char* argv[])
-{
+int main(int argc, char* argv[]) {
     // inspect_args(argc, argv);
     int test_number = parse_test_case(argc, argv);
 
@@ -48,7 +46,8 @@ int main(int argc, char* argv[])
         break;
 
     case 3:
-        std::println(R"( ASSERT_FATAL(false == true, "Always crash: {{}} {{}}.", "Something", 10); )");
+        std::println(
+            R"( ASSERT_FATAL(false == true, "Always crash: {{}} {{}}.", "Something", 10); )");
         ASSERT_FATAL(false == true, "Always crash: {} {}.", "Something", 10);
         break;
 
@@ -56,9 +55,8 @@ int main(int argc, char* argv[])
         std::println(R"( if (ASSERT(true == true, "This won't fail")) {{ )");
         if (ASSERT(true == true, "This won't fail")) {
             auto loc { std::source_location::current() };
-            std::println("{}This is an expression-like assertion: {}:{}{}",
-                Assert::Color::GREEN, loc.file_name(), loc.line(),
-                Assert::Color::RESET);
+            std::println("{}This is an expression-like assertion: {}:{}{}", Assert::Color::GREEN,
+                         loc.file_name(), loc.line(), Assert::Color::RESET);
         }
         break;
 
@@ -66,9 +64,8 @@ int main(int argc, char* argv[])
         std::println(R"( if (!ASSERT(false == true, "This will fail: {{}}", 1)) {{ )");
         if (!ASSERT(false == true, "This will fail: {}", 1)) {
             auto loc { std::source_location::current() };
-            std::println("{}This is an expression-like assertion: {}:{}{}",
-                Assert::Color::GREEN, loc.file_name(), loc.line(),
-                Assert::Color::RESET);
+            std::println("{}This is an expression-like assertion: {}:{}{}", Assert::Color::GREEN,
+                         loc.file_name(), loc.line(), Assert::Color::RESET);
         }
         break;
 

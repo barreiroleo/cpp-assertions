@@ -47,7 +47,7 @@ Compile() {
 RunTests() {
     local EXECUTABLE="$1"
     local MODE=""
-    MODE=$( [[ "$EXECUTABLE" == "${EXECUTABLE_NDEBUG}" ]] && echo "Debug" || echo "NoDebug" )
+    MODE=$( [[ "$EXECUTABLE" == "${EXECUTABLE_NDEBUG}" ]] && echo "NoDebug" || echo "Debug" )
 
 
     local i=0
@@ -68,5 +68,5 @@ RunTests() {
 # Compile and run the tests on each mode
 #######################################
 Compile
+# RunTests "${EXECUTABLE_NDEBUG}"
 RunTests "${EXECUTABLE}"
-RunTests "${EXECUTABLE_NDEBUG}"
