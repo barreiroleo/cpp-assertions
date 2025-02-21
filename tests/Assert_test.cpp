@@ -1,5 +1,4 @@
 #include "Assert.hpp"
-#include <iostream>
 #include <print>
 
 #define EXIT_TESTS_FINISH 3

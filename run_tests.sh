@@ -3,8 +3,8 @@
 # Source file containing test cases
 SOURCE_FILE="./tests/Assert_test.cpp"
 # Name of the compiled executable
-EXECUTABLE="./build/assert_test"
-EXECUTABLE_NDEBUG="./build/assert_test_NDEBUG"
+EXECUTABLE="./build/cpp-assertions-tests-debug"
+EXECUTABLE_NDEBUG="./build/cpp-assertions-tests-ndebug"
 # Exit code when tests finishes
 EXIT_TESTS_FINISH=3
 
@@ -67,6 +67,5 @@ RunTests() {
 #######################################
 # Compile and run the tests on each mode
 #######################################
-Compile
 RunTests "${EXECUTABLE_NDEBUG}"
 RunTests "${EXECUTABLE}"

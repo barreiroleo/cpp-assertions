@@ -1,7 +1,0 @@
--std=c++23
--g
--O0
--Wall
--fno-rtti
--Wno-unused-variable
--Isrc/

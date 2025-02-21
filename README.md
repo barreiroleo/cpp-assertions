@@ -99,9 +99,19 @@ int main(int argc, char* argv[]) {
 ## Run tests
 
 Since fatal assertions terminate the program under test, this library relies on a custom test runner.
+Build system generates two different tests targets, one for debug and other for non-debug modes.
+The run script executes the same tests suite for both targets.
 
-The runner generates executables for debug and non-debug modes. Then it run all the tests cases for
-both modes.
+```bash
+cmake -B build -DASSERTION_TESTS=ON .
+cmake --build build
+cmake --build build --target run_tests
+```
+Or using a one-liner: `make gen build test`
+
+> [!WARNING]
+> Test runner is a bash script so, is only supported on Linux at this moment.
+> PRs for other platforms are welcome. A migration to ctests is also possible.
 
 > [!NOTE]
 > *A snapshot testing feature to check test output is planned for the future.*
