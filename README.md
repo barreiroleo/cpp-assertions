@@ -1,6 +1,6 @@
 <!-- vim: set foldlevel=3 nowrap: -->
 
-# cpp-assertion
+# cpp-assertions
 
 A simple and modern C++ assertion library.
 
@@ -27,8 +27,24 @@ A simple and modern C++ assertion library.
 
 ## Usage
 
-Just copy the header file (`./src/Assert.hpp`) and include it as needed. Take a look at
-`/compile_flags.txt` to get a simple example.
+`cpp-assertions` is a header-only lib. You can just copy the header (`./src/Assert.hpp`) and then
+include it as needed depending your build system.
+
+CMake is supported though. See an example at [cpp-template](https://github.com/barreiroleo/cpp-template)
+```cmake
+include(FetchContent)
+
+FetchContent_Declare(cpp-assertions
+    GIT_REPOSITORY  "https://github.com/barreiroleo/cpp-assertions.git"
+    SOURCE_DIR      "${PROJECT_SOURCE_DIR}/include/cpp-assertions"
+    GIT_TAG         "origin/master"
+    GIT_SHALLOW     TRUE
+    GIT_PROGRESS    TRUE
+)
+FetchContent_MakeAvailable(cpp-assertions)
+
+target_link_libraries(your_target PRIVATE cpp-assertions)
+```
 
 ### Debug break
 
